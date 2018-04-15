@@ -12,4 +12,3 @@ def bubble_sort(value_array):
                     value_array[i] = second
                     value_array[i + 1] = first
         n = n-1
-    

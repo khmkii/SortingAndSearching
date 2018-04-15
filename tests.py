@@ -1,6 +1,10 @@
+import random
 import unittest
-from search import binary_search
+
 from recursion import get_fib, recursive_factorial
+from searching import binary_search
+from sorting import bubble_sort
+
 
 
 class BinarySearchTest(unittest.TestCase):
@@ -42,6 +46,27 @@ class RecursiveFibonacciTest(unittest.TestCase):
 
     def test_recursive_fibonacci_zero(self):
         self.assertEqual(get_fib(0), 0)
+
+
+class SortingTest(unittest.TestCase):
+
+    def setUp(self):
+        self.wrong_order = [random.randint(0, 100) for x in range(20)]
+
+    def testDown(self):
+        del self.wrong_order
+
+    def test_bubble_sort(self):
+        bubble_sort(self.wrong_order)
+        start = 0
+        terminus = len(self.wrong_order) - 1
+        while start < terminus:
+            self.assertGreaterEqual(
+                self.wrong_order[terminus],
+                self.wrong_order[start]
+            )
+            start += 1
+            terminus -= 1
 
 
 if __name__ == "__main__":
